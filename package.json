@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "towa",
   "version": "0.1.0",
   "author": "dqn <dqn270@gmail.com>",

@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["dom", "esnext"],
-    "jsx": "preserve",
     "module": "esnext",
     "strict": true,
-    "moduleResolution": "nodenext",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "exactOptionalPropertyTypes": true,
