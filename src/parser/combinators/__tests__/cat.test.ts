@@ -1,5 +1,5 @@
-import { char } from "../../primitives/char";
-import { cat } from "../cat";
+import { char } from "../../primitives/char.js";
+import { cat } from "../cat.js";
 
 describe("cat", () => {
   describe("cat([])", () => {

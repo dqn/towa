@@ -1,4 +1,4 @@
-import { result } from "../result";
+import { result } from "../result.js";
 
 type Output = ReturnType<typeof result>;
 

@@ -1,4 +1,4 @@
-import { string } from "../string";
+import { string } from "../string.js";
 
 type Output = ReturnType<typeof string>;
 

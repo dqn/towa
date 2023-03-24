@@ -1,4 +1,4 @@
-import { is } from "../is";
+import { is } from "../is.js";
 
 describe("is", () => {
   describe("is((c) => c === 'a')", () => {

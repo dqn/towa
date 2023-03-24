@@ -1,6 +1,6 @@
-import { unwrap } from "../../utils/unwrap";
-import type { ParserInput } from "../types/ParseInput";
-import type { ParserOutput } from "../types/ParserOutput";
+import { unwrap } from "../../utils/unwrap.js";
+import type { ParserInput } from "../types/ParseInput.js";
+import type { ParserOutput } from "../types/ParserOutput.js";
 
 export function anyChar(input: ParserInput): ParserOutput<string> {
   if (input.length === 0) {

@@ -1,6 +1,6 @@
-import { ParserInput } from "../types/ParseInput";
-import { ParserOutput } from "../types/ParserOutput";
-import { str } from "../utils/str";
+import { ParserInput } from "../types/ParseInput.js";
+import { ParserOutput } from "../types/ParserOutput.js";
+import { str } from "../utils/str.js";
 
 export type ValueType = "i32";
 

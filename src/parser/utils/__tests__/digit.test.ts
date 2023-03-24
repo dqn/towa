@@ -1,4 +1,4 @@
-import { digit } from "../digit";
+import { digit } from "../digit.js";
 
 const parser = digit;
 type Output = ReturnType<typeof digit>;

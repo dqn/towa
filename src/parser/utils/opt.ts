@@ -1,8 +1,8 @@
-import { rep } from "../combinators/rep";
-import type { Option } from "../types/Option";
-import type { ParserInput } from "../types/ParseInput";
-import type { Parser } from "../types/Parser";
-import type { ParserOutput } from "../types/ParserOutput";
+import { rep } from "../combinators/rep.js";
+import type { Option } from "../types/Option.js";
+import type { ParserInput } from "../types/ParseInput.js";
+import type { Parser } from "../types/Parser.js";
+import type { ParserOutput } from "../types/ParserOutput.js";
 
 export function opt<T>(
   p: Parser<T>,

@@ -1,4 +1,4 @@
-import { localGet } from "../localGet";
+import { localGet } from "../localGet.js";
 
 type Output = ReturnType<typeof localGet>;
 

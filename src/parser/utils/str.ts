@@ -1,6 +1,6 @@
-import { cat } from "../combinators/cat";
-import { char } from "../primitives/char";
-import { Parser } from "../types/Parser";
+import { cat } from "../combinators/cat.js";
+import { char } from "../primitives/char.js";
+import { Parser } from "../types/Parser.js";
 
 export function str<T extends string>(s: T): Parser<T> {
   return (input) => {

@@ -1,5 +1,5 @@
-import { map } from "../map";
-import { anyChar } from "../../primitives/anyChar";
+import { map } from "../map.js";
+import { anyChar } from "../../primitives/anyChar.js";
 
 const parser = map(anyChar, (s) => Number.parseInt(s, 10));
 type Output = ReturnType<typeof parser>;

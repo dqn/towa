@@ -1,4 +1,4 @@
-import { alpha } from "../alpha";
+import { alpha } from "../alpha.js";
 
 const parser = alpha;
 type Output = ReturnType<typeof alpha>;

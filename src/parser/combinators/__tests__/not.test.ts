@@ -1,5 +1,5 @@
-import { char } from "../../primitives/char";
-import { not } from "../not";
+import { char } from "../../primitives/char.js";
+import { not } from "../not.js";
 
 const parser = not(char("a"));
 type Output = ReturnType<typeof parser>;

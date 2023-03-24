@@ -1,4 +1,4 @@
-import { whitespace } from "../whitespace";
+import { whitespace } from "../whitespace.js";
 
 const parser = whitespace;
 type Output = ReturnType<typeof parser>;

@@ -1,4 +1,4 @@
-import { str } from "../str";
+import { str } from "../str.js";
 
 const parser = str("true");
 type Output = ReturnType<typeof parser>;

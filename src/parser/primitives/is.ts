@@ -1,6 +1,6 @@
-import type { ParserInput } from "../types/ParseInput";
-import type { ParserOutput } from "../types/ParserOutput";
-import { anyChar } from "./anyChar";
+import type { ParserInput } from "../types/ParseInput.js";
+import type { ParserOutput } from "../types/ParserOutput.js";
+import { anyChar } from "./anyChar.js";
 
 export function is<T extends string>(
   f: (c: string) => c is T,

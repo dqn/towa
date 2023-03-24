@@ -1,15 +1,15 @@
-import { cat } from "../combinators/cat";
-import { rep } from "../combinators/rep";
-import { char } from "../primitives/char";
-import { ParserInput } from "../types/ParseInput";
-import { ParserOutput } from "../types/ParserOutput";
-import { map } from "../utils/map";
-import { str } from "../utils/str";
-import { whitespace } from "../utils/whitespace";
-import { Param, param } from "./param";
-import { Result, result } from "./result";
-import { Statement, statement } from "./statement";
-import { variable } from "./variable";
+import { cat } from "../combinators/cat.js";
+import { rep } from "../combinators/rep.js";
+import { char } from "../primitives/char.js";
+import { ParserInput } from "../types/ParseInput.js";
+import { ParserOutput } from "../types/ParserOutput.js";
+import { map } from "../utils/map.js";
+import { str } from "../utils/str.js";
+import { whitespace } from "../utils/whitespace.js";
+import { Param, param } from "./param.js";
+import { Result, result } from "./result.js";
+import { Statement, statement } from "./statement.js";
+import { variable } from "./variable.js";
 
 export type Func = {
   name: string;

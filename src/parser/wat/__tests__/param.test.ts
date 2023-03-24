@@ -1,4 +1,4 @@
-import { param } from "../param";
+import { param } from "../param.js";
 
 type Output = ReturnType<typeof param>;
 

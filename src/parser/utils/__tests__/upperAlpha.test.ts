@@ -1,4 +1,4 @@
-import { upperAlpha } from "../upperAlpha";
+import { upperAlpha } from "../upperAlpha.js";
 
 const parser = upperAlpha;
 type Output = ReturnType<typeof upperAlpha>;

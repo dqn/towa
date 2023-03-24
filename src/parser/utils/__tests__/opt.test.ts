@@ -1,5 +1,5 @@
-import { opt } from "../opt";
-import { char } from "../../primitives/char";
+import { opt } from "../opt.js";
+import { char } from "../../primitives/char.js";
 
 const parser = opt(char("a"));
 type Output = ReturnType<typeof parser>;

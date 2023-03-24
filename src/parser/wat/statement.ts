@@ -1,8 +1,8 @@
-import { or } from "../combinators/or";
-import { ParserInput } from "../types/ParseInput";
-import { ParserOutput } from "../types/ParserOutput";
-import { I32Add, i32Add } from "./i32Add";
-import { LocalGet, localGet } from "./localGet";
+import { or } from "../combinators/or.js";
+import { ParserInput } from "../types/ParseInput.js";
+import { ParserOutput } from "../types/ParserOutput.js";
+import { I32Add, i32Add } from "./i32Add.js";
+import { LocalGet, localGet } from "./localGet.js";
 
 export type Statement = LocalGet | I32Add;
 

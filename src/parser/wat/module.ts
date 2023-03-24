@@ -1,13 +1,13 @@
-import { cat } from "../combinators/cat";
-import { char } from "../primitives/char";
-import { ParserInput } from "../types/ParseInput";
-import { ParserOutput } from "../types/ParserOutput";
-import { map } from "../utils/map";
-import { opt } from "../utils/opt";
-import { str } from "../utils/str";
-import { whitespace } from "../utils/whitespace";
-import { Export, _export } from "./export";
-import { Func, func } from "./func";
+import { cat } from "../combinators/cat.js";
+import { char } from "../primitives/char.js";
+import { ParserInput } from "../types/ParseInput.js";
+import { ParserOutput } from "../types/ParserOutput.js";
+import { map } from "../utils/map.js";
+import { opt } from "../utils/opt.js";
+import { str } from "../utils/str.js";
+import { whitespace } from "../utils/whitespace.js";
+import { Export, _export } from "./export.js";
+import { Func, func } from "./func.js";
 
 export type Module = {
   func: null | Func;

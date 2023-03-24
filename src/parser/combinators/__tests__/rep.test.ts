@@ -1,5 +1,5 @@
-import { char } from "../../primitives/char";
-import { rep } from "../rep";
+import { char } from "../../primitives/char.js";
+import { rep } from "../rep.js";
 
 describe("rep", () => {
   describe('rep(char("a"))', () => {

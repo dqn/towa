@@ -1,4 +1,4 @@
-import { statement } from "../statement";
+import { statement } from "../statement.js";
 
 type Output = ReturnType<typeof statement>;
 

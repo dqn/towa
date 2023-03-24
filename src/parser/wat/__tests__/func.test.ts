@@ -1,4 +1,4 @@
-import { func } from "../func";
+import { func } from "../func.js";
 
 type Output = ReturnType<typeof func>;
 

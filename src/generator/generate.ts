@@ -1,4 +1,4 @@
-import { Module } from "../parser/wat/module";
+import { Module } from "../parser/wat/module.js";
 
 const i32Type = 0x7f;
 

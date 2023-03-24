@@ -1,4 +1,4 @@
-import { _export } from "../export";
+import { _export } from "../export.js";
 
 type Output = ReturnType<typeof _export>;
 

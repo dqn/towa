@@ -1,5 +1,5 @@
-import { char } from "../../primitives/char";
-import { or } from "../or";
+import { char } from "../../primitives/char.js";
+import { or } from "../or.js";
 
 describe("or", () => {
   describe("or([])", () => {

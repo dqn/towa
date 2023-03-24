@@ -1,4 +1,4 @@
-import { valueType } from "../valueType";
+import { valueType } from "../valueType.js";
 
 type Output = ReturnType<typeof valueType>;
 

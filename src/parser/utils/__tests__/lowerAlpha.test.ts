@@ -1,4 +1,4 @@
-import { lowerAlpha } from "../lowerAlpha";
+import { lowerAlpha } from "../lowerAlpha.js";
 
 const parser = lowerAlpha;
 type Output = ReturnType<typeof lowerAlpha>;

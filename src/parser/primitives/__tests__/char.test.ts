@@ -1,4 +1,4 @@
-import { char } from "../char";
+import { char } from "../char.js";
 
 const parser = char("a");
 type Output = ReturnType<typeof parser>;

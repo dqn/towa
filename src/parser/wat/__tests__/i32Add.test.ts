@@ -1,4 +1,4 @@
-import { i32Add } from "../i32Add";
+import { i32Add } from "../i32Add.js";
 
 type Output = ReturnType<typeof i32Add>;
 

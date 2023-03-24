@@ -1,4 +1,4 @@
-import { eof } from "../eof";
+import { eof } from "../eof.js";
 
 type Output = ReturnType<typeof eof>;
 

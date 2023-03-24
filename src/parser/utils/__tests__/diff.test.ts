@@ -1,6 +1,6 @@
-import { char } from "../../primitives/char";
-import { anyChar } from "../../primitives/anyChar";
-import { diff } from "../diff";
+import { char } from "../../primitives/char.js";
+import { anyChar } from "../../primitives/anyChar.js";
+import { diff } from "../diff.js";
 
 const parser = diff(anyChar, char("0"));
 type Output = ReturnType<typeof parser>;

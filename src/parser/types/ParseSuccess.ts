@@ -1,4 +1,4 @@
-import type { ParserInput } from "./ParseInput";
+import type { ParserInput } from "./ParseInput.js";
 
 export type ParseSuccess<T> = {
   success: true;

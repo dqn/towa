@@ -1,4 +1,4 @@
-import { variable } from "../variable";
+import { variable } from "../variable.js";
 
 type Output = ReturnType<typeof variable>;
 

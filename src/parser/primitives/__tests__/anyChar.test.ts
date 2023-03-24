@@ -1,4 +1,4 @@
-import { anyChar } from "../anyChar";
+import { anyChar } from "../anyChar.js";
 
 type Output = ReturnType<typeof anyChar>;
 

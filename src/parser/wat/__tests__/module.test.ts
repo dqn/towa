@@ -1,4 +1,4 @@
-import { module } from "../module";
+import { module } from "../module.js";
 
 type Output = ReturnType<typeof module>;
 
