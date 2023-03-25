@@ -27,44 +27,48 @@ describe("func", () => {
     expect(output).toEqual<Output>({
       success: true,
       data: {
-        func: {
-          name: "add",
-          params: [
-            {
-              name: "lhs",
-              type: "i32",
-            },
-            {
-              name: "rhs",
-              type: "i32",
-            },
-          ],
-          results: [
-            {
-              type: "i32",
-            },
-          ],
-          locals: [],
-          statements: [
-            {
-              type: "local.get",
-              ref: "variable",
-              variable: "lhs",
-            },
-            {
-              type: "local.get",
-              ref: "variable",
-              variable: "rhs",
-            },
-            {
-              type: "i32.add",
-            },
-          ],
-        },
-        export: {
-          name: "add",
-          target: "add",
-        },
+        funcs: [
+          {
+            name: "add",
+            params: [
+              {
+                name: "lhs",
+                type: "i32",
+              },
+              {
+                name: "rhs",
+                type: "i32",
+              },
+            ],
+            results: [
+              {
+                type: "i32",
+              },
+            ],
+            locals: [],
+            statements: [
+              {
+                type: "local.get",
+                ref: "variable",
+                variable: "lhs",
+              },
+              {
+                type: "local.get",
+                ref: "variable",
+                variable: "rhs",
+              },
+              {
+                type: "i32.add",
+              },
+            ],
+          },
+        ],
+        exports: [
+          {
+            name: "add",
+            target: "add",
+          },
+        ],
       },
       rest: [],
     });
@@ -86,44 +90,48 @@ describe("func", () => {
     expect(output).toEqual<Output>({
       success: true,
       data: {
-        func: {
-          name: "add",
-          params: [
-            {
-              name: null,
-              type: "i32",
-            },
-            {
-              name: null,
-              type: "i32",
-            },
-          ],
-          results: [
-            {
-              type: "i32",
-            },
-          ],
-          locals: [],
-          statements: [
-            {
-              type: "local.get",
-              ref: "index",
-              index: 0,
-            },
-            {
-              type: "local.get",
-              ref: "index",
-              index: 1,
-            },
-            {
-              type: "i32.add",
-            },
-          ],
-        },
-        export: {
-          name: "add",
-          target: "add",
-        },
+        funcs: [
+          {
+            name: "add",
+            params: [
+              {
+                name: null,
+                type: "i32",
+              },
+              {
+                name: null,
+                type: "i32",
+              },
+            ],
+            results: [
+              {
+                type: "i32",
+              },
+            ],
+            locals: [],
+            statements: [
+              {
+                type: "local.get",
+                ref: "index",
+                index: 0,
+              },
+              {
+                type: "local.get",
+                ref: "index",
+                index: 1,
+              },
+              {
+                type: "i32.add",
+              },
+            ],
+          },
+        ],
+        exports: [
+          {
+            name: "add",
+            target: "add",
+          },
+        ],
       },
       rest: [],
     });
