@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf ./dist",
-    "build": "tsup ./src --dts",
+    "build": "yarn clean && tsup ./src",
+    "postbuild": "trash './dist/**/__tests__'",
     "typecheck": "tsc --noEmit",
     "test": "jest"
   },
@@ -34,6 +35,7 @@
     "jest": "^29.5.0",
     "prettier": "^2.8.7",
     "rimraf": "^4.4.1",
+    "trash-cli": "^5.0.0",
     "ts-node": "^10.9.1",
     "tsup": "^6.7.0",
     "tsx": "^3.12.6",
