@@ -1,8 +1,8 @@
 import { generate } from "../generate.js";
 
 describe("func", () => {
-  it("ok", () => {
-    const actual = generate({
+  it("ok", async () => {
+    const buf = generate({
       func: {
         name: "add",
         params: [
@@ -15,16 +15,20 @@ describe("func", () => {
             type: "i32",
           },
         ],
-        result: {
-          type: "i32",
-        },
+        results: [
+          {
+            type: "i32",
+          },
+        ],
         statements: [
           {
             type: "local.get",
+            ref: "variable",
             variable: "lhs",
           },
           {
             type: "local.get",
+            ref: "variable",
             variable: "rhs",
           },
           {
@@ -37,12 +41,55 @@ describe("func", () => {
         target: "add",
       },
     });
-    const buf = Buffer.from([
-      0x00, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00, 0x01, 0x07, 0x01, 0x60,
-      0x02, 0x7f, 0x7f, 0x01, 0x7f, 0x03, 0x02, 0x01, 0x00, 0x07, 0x07, 0x01,
-      0x03, 0x61, 0x64, 0x64, 0x00, 0x00, 0x0a, 0x09, 0x01, 0x07, 0x00, 0x20,
-      0x00, 0x20, 0x01, 0x6a, 0x0b,
-    ]);
-    expect(actual).toEqual(buf);
+    const wasmModule = await WebAssembly.instantiate(buf);
+    const { add } = wasmModule.instance.exports;
+    const actual = (add as any)(1, 2);
+    expect(actual).toBe(3);
+  });
+
+  it("with index access", async () => {
+    const buf = generate({
+      func: {
+        name: "add",
+        params: [
+          {
+            name: null,
+            type: "i32",
+          },
+          {
+            name: null,
+            type: "i32",
+          },
+        ],
+        results: [
+          {
+            type: "i32",
+          },
+        ],
+        statements: [
+          {
+            type: "local.get",
+            ref: "index",
+            index: 0,
+          },
+          {
+            type: "local.get",
+            ref: "index",
+            index: 1,
+          },
+          {
+            type: "i32.add",
+          },
+        ],
+      },
+      export: {
+        name: "add",
+        target: "add",
+      },
+    });
+    const wasmModule = await WebAssembly.instantiate(buf);
+    const { add } = wasmModule.instance.exports;
+    const actual = (add as any)(2, 3);
+    expect(actual).toBe(5);
   });
 });

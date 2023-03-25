@@ -14,7 +14,7 @@ import { variable } from "./variable.js";
 export type Func = {
   name: string;
   params: Param[];
-  result: Result;
+  results: Result[];
   statements: Statement[];
 };
 
@@ -27,15 +27,15 @@ export function func(input: ParserInput): ParserOutput<Func> {
       variable,
       whitespace,
       rep(cat([param, whitespace])),
-      result,
+      rep(result),
       whitespace,
       rep(cat([statement, whitespace])),
       char(")"),
     ]),
-    ([, , , name, , paramsWithWs, result, , statementsWithWs]) => ({
+    ([, , , name, , paramsWithWs, results, , statementsWithWs]) => ({
       name,
       params: paramsWithWs.map(([p]) => p),
-      result,
+      results,
       statements: statementsWithWs.map(([s]) => s),
     }),
   )(input);

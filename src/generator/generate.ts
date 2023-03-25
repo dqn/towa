@@ -31,15 +31,17 @@ export function generate(ast: Module): Buffer {
       }
     }
 
-    binary.push(0x01); // num results
+    binary.push(ast.func.results.length); // num results
 
-    switch (ast.func.result.type) {
-      case "i32": {
-        binary.push(i32Type);
-        break;
-      }
-      default: {
-        ast.func.result.type satisfies never;
+    for (const result of ast.func.results) {
+      switch (result.type) {
+        case "i32": {
+          binary.push(i32Type);
+          break;
+        }
+        default: {
+          result.type satisfies never;
+        }
       }
     }
 
@@ -89,10 +91,15 @@ export function generate(ast: Module): Buffer {
       switch (statement.type) {
         case "local.get": {
           binary.push(0x20); // local.get
-          const index = ast.func.params.findIndex(
-            (p) => p.name === statement.variable,
-          );
-          binary.push(index); // local index
+
+          if (statement.ref === "variable") {
+            const index = ast.func.params.findIndex(
+              (p) => p.name === statement.variable,
+            );
+            binary.push(index); // local index
+          } else {
+            binary.push(statement.index); // local index
+          }
           break;
         }
         case "i32.add": {

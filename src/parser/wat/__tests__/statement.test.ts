@@ -18,6 +18,7 @@ describe("statement", () => {
       success: true,
       data: {
         type: "local.get",
+        ref: "variable",
         variable: "foobar",
       },
       rest: [],
