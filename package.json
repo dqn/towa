@@ -11,6 +11,9 @@
     "typecheck": "tsc --noEmit",
     "test": "jest"
   },
+  "bin": {
+    "towa": "./dist/bin/towa.js"
+  },
   "files": [
     "dist",
     "LICENSE",
