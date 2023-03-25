@@ -72,7 +72,6 @@ export function generate(ast: Module): Buffer {
     binary.push(0x00); // export kind
     binary.push(0x00); // export func index
     binary[indexToFixup] = binary.length - indexToFixup - 1;
-    -1;
   }
 
   if (ast.func !== null) {
@@ -85,7 +84,20 @@ export function generate(ast: Module): Buffer {
     // function body 0
     binary.push(0x00); // func body size (guess)
     const indexToFixupFunctionBody = binary.length - 1;
-    binary.push(0x00); // local decl count
+    binary.push(Math.min(ast.func.locals.length, 1)); // local decl count
+
+    if (ast.func.locals.length > 0) {
+      binary.push(ast.func.locals.length); // local type count
+
+      for (const local of ast.func.locals) {
+        switch (local.type) {
+          case "i32": {
+            binary.push(i32Type);
+          }
+        }
+        binary.push();
+      }
+    }
 
     for (const statement of ast.func.statements) {
       switch (statement.type) {
@@ -93,7 +105,7 @@ export function generate(ast: Module): Buffer {
           binary.push(0x20); // local.get
 
           if (statement.ref === "variable") {
-            const index = ast.func.params.findIndex(
+            const index = [...ast.func.params, ...ast.func.locals].findIndex(
               (p) => p.name === statement.variable,
             );
             binary.push(index); // local index

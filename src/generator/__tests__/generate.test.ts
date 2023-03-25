@@ -20,6 +20,7 @@ describe("func", () => {
             type: "i32",
           },
         ],
+        locals: [],
         statements: [
           {
             type: "local.get",
@@ -66,6 +67,7 @@ describe("func", () => {
             type: "i32",
           },
         ],
+        locals: [],
         statements: [
           {
             type: "local.get",

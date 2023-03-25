@@ -6,6 +6,7 @@ import { ParserOutput } from "../types/ParserOutput.js";
 import { map } from "../utils/map.js";
 import { str } from "../utils/str.js";
 import { whitespace } from "../utils/whitespace.js";
+import { Local, local } from "./local.js";
 import { Param, param } from "./param.js";
 import { Result, result } from "./result.js";
 import { Statement, statement } from "./statement.js";
@@ -15,6 +16,7 @@ export type Func = {
   name: string;
   params: Param[];
   results: Result[];
+  locals: Local[];
   statements: Statement[];
 };
 
@@ -27,15 +29,26 @@ export function func(input: ParserInput): ParserOutput<Func> {
       variable,
       whitespace,
       rep(cat([param, whitespace])),
-      rep(result),
-      whitespace,
+      rep(cat([result, whitespace])),
+      rep(cat([local, whitespace])),
       rep(cat([statement, whitespace])),
       char(")"),
     ]),
-    ([, , , name, , paramsWithWs, results, , statementsWithWs]) => ({
+    ([
+      ,
+      ,
+      ,
+      name,
+      ,
+      paramsWithWs,
+      resultWithWses,
+      localWithWses,
+      statementsWithWs,
+    ]) => ({
       name,
       params: paramsWithWs.map(([p]) => p),
-      results,
+      results: resultWithWses.map(([x]) => x),
+      locals: localWithWses.map(([x]) => x),
       statements: statementsWithWs.map(([s]) => s),
     }),
   )(input);

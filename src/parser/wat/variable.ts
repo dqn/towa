@@ -9,8 +9,7 @@ import { digit } from "../utils/digit.js";
 import { map } from "../utils/map.js";
 
 export function variable(input: ParserInput): ParserOutput<string> {
-  return map(
-    cat([char("$"), alpha, rep(or([alpha, digit]))]),
-    ([, head, splitted]) => head + splitted.join(""),
+  return map(cat([char("$"), rep(or([alpha, digit]), 1)]), ([, splitted]) =>
+    splitted.join(""),
   )(input);
 }
