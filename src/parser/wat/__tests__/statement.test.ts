@@ -36,4 +36,29 @@ describe("statement", () => {
       rest: [],
     });
   });
+
+  it("i32.sub", () => {
+    const input = [..."i32.sub"];
+    const output = statement(input);
+    expect(output).toEqual<Output>({
+      success: true,
+      data: {
+        type: "i32.sub",
+      },
+      rest: [],
+    });
+  });
+
+  it("i32.const", () => {
+    const input = [..."i32.const 10"];
+    const output = statement(input);
+    expect(output).toEqual<Output>({
+      success: true,
+      data: {
+        type: "i32.const",
+        literal: 10,
+      },
+      rest: [],
+    });
+  });
 });

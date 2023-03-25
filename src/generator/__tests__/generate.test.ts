@@ -52,16 +52,12 @@ describe("func", () => {
     expect(actual).toBe(3);
   });
 
-  it("with index access", async () => {
+  it("const", async () => {
     const buf = generate({
       funcs: [
         {
-          name: "add",
+          name: "add10",
           params: [
-            {
-              name: null,
-              type: "i32",
-            },
             {
               name: null,
               type: "i32",
@@ -75,14 +71,13 @@ describe("func", () => {
           locals: [],
           statements: [
             {
-              type: "local.get",
-              ref: "index",
-              index: 0,
+              type: "i32.const",
+              literal: 10,
             },
             {
               type: "local.get",
               ref: "index",
-              index: 1,
+              index: 0,
             },
             {
               type: "i32.add",
@@ -93,13 +88,13 @@ describe("func", () => {
       exports: [
         {
           name: "add",
-          target: "add",
+          target: "add10",
         },
       ],
     });
     const wasmModule = await WebAssembly.instantiate(buf);
     const { add } = wasmModule.instance.exports;
-    const actual = (add as any)(2, 3);
-    expect(actual).toBe(5);
+    const actual = (add as any)(2);
+    expect(actual).toBe(12);
   });
 });

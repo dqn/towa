@@ -127,6 +127,11 @@ export function generate(ast: Module): Buffer {
             }
             break;
           }
+          case "i32.const": {
+            binary.push(0x41); // i32.const
+            binary.push(statement.literal); // i32 literal
+            break;
+          }
           case "i32.add": {
             binary.push(0x6a); // i32.add
             break;
