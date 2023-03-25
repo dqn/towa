@@ -9,7 +9,7 @@ import { map } from "../utils/map.js";
 
 export function identifier(input: ParserInput): ParserOutput<string> {
   return map(
-    cat([alpha, rep(or([alpha, digit]), 1)]),
+    cat([alpha, rep(or([alpha, digit]))]),
     ([head, splitted]) => head + splitted.join(""),
   )(input);
 }
