@@ -1,5 +1,7 @@
 # towa
 
+[![CI](https://github.com/dqn/towa/workflows/CI/badge.svg)](https://github.com/dqn/towa/actions)
+
 Toy wat to wasm compiler
 
 ## Installation
