@@ -18,13 +18,14 @@ export function module(input: ParserInput): ParserOutput<Module> {
   return map(
     cat([
       char("("),
+      whitespace,
       str("module"),
       whitespace,
       opt(cat([func, whitespace])),
       opt(cat([_export, whitespace])),
       char(")"),
     ]),
-    ([, , , optFunc, optExport]) => ({
+    ([, , , , optFunc, optExport]) => ({
       func: optFunc.status === "some" ? optFunc.value[0] : null,
       export: optExport.status === "some" ? optExport.value[0] : null,
     }),

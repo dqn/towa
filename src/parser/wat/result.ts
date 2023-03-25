@@ -13,7 +13,15 @@ export type Result = {
 
 export function result(input: ParserInput): ParserOutput<Result> {
   return map(
-    cat([char("("), str("result"), whitespace, valueType, char(")")]),
-    ([, , , type]) => ({ type }),
+    cat([
+      char("("),
+      whitespace,
+      str("result"),
+      whitespace,
+      valueType,
+      whitespace,
+      char(")"),
+    ]),
+    ([, , , , type]) => ({ type }),
   )(input);
 }

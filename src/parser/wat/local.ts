@@ -18,13 +18,15 @@ export function local(input: ParserInput): ParserOutput<Local> {
   return map(
     cat([
       char("("),
+      whitespace,
       str("local"),
       whitespace,
       opt(cat([variable, whitespace])),
       valueType,
+      whitespace,
       char(")"),
     ]),
-    ([, , , maybeNameWithWs, type]) => ({
+    ([, , , , maybeNameWithWs, type]) => ({
       type,
       name: maybeNameWithWs.status === "some" ? maybeNameWithWs.value[0] : null,
     }),

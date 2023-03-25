@@ -24,6 +24,7 @@ export function func(input: ParserInput): ParserOutput<Func> {
   return map(
     cat([
       char("("),
+      whitespace,
       str("func"),
       whitespace,
       variable,
@@ -35,6 +36,7 @@ export function func(input: ParserInput): ParserOutput<Func> {
       char(")"),
     ]),
     ([
+      ,
       ,
       ,
       ,

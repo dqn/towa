@@ -18,13 +18,15 @@ export function param(input: ParserInput): ParserOutput<Param> {
   return map(
     cat([
       char("("),
+      whitespace,
       str("param"),
       whitespace,
       opt(cat([variable, whitespace])),
       valueType,
+      whitespace,
       char(")"),
     ]),
-    ([, , , maybeNameWithWs, type]) => ({
+    ([, , , , maybeNameWithWs, type]) => ({
       type,
       name: maybeNameWithWs.status === "some" ? maybeNameWithWs.value[0] : null,
     }),

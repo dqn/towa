@@ -17,18 +17,22 @@ export function _export(input: ParserInput): ParserOutput<Export> {
   return map(
     cat([
       char("("),
+      whitespace,
       str("export"),
       whitespace,
       string,
       whitespace,
       char("("),
+      whitespace,
       str("func"),
       whitespace,
       variable,
+      whitespace,
       char(")"),
+      whitespace,
       char(")"),
     ]),
-    ([, , , name, , , , , target]) => ({
+    ([, , , , name, , , , , , target]) => ({
       name,
       target,
     }),
